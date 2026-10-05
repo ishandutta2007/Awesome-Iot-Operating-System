@@ -146,15 +146,15 @@ Your support is greatly appreciated! 🙌
 
 ---
 
-## 📈 Star History
-
-[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Iot-Operating-System&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Iot-Operating-System&type=date&legend=top-left)
-
----
-
 ## ⚠️ Disclaimer
 
 This repository is a community-curated collection intended for educational and informational purposes 💡. Operating system choice depends on hardware architecture, real-time requirements, safety certifications, and power constraints. Always perform detailed technical evaluation before deploying software to production IoT devices.
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Iot-Operating-System&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Iot-Operating-System&type=date&legend=top-left)
 
 ---
 
