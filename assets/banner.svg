@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <!-- Glowing Text Gradient -->
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+
+    <!-- Circuit Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.4"/>
+      <circle cx="40" cy="40" r="1.5" fill="#334155"/>
+    </pattern>
+
+    <!-- Soft Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .title {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 52px;
+      fill: url(#title-grad);
+      letter-spacing: -1px;
+    }
+    .subtitle {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      fill: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+    .tag {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      fill: #38bdf8;
+      font-weight: 600;
+    }
+
+    /* Dynamic SVG Animations */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.3; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(0.95); opacity: 0.3; }
+    }
+    @keyframes float-node {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -40; }
+    }
+
+    .pulsing-orb {
+      transform-origin: 1050px 160px;
+      animation: pulse-ring 4s ease-in-out infinite;
+    }
+    .floating-group {
+      animation: float-node 5s ease-in-out infinite;
+    }
+    .data-stream {
+      stroke-dasharray: 8, 8;
+      animation: dash 2s linear infinite;
+    }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="320" rx="16" fill="url(#bg-grad)"/>
+  <rect width="1200" height="320" rx="16" fill="url(#grid)"/>
+
+  <!-- Dynamic Background Ambient Graphics (Positioned away from text) -->
+  <g class="pulsing-orb">
+    <circle cx="1050" cy="160" r="120" fill="#6366f1" opacity="0.15" filter="url(#glow)"/>
+    <circle cx="1050" cy="160" r="70" fill="#38bdf8" opacity="0.2" filter="url(#glow)"/>
+  </g>
+
+  <!-- Dynamic Network / Hardware Connection Lines (Right Side Background) -->
+  <g opacity="0.4" class="floating-group">
+    <path d="M 850 80 L 950 160 L 1080 100 M 950 160 L 1020 240 M 1080 100 L 1140 180 M 1020 240 L 1140 180" 
+          fill="none" stroke="#475569" stroke-width="2"/>
+    
+    <path d="M 850 80 L 950 160 L 1080 100" 
+          fill="none" stroke="#38bdf8" stroke-width="2" class="data-stream"/>
+
+    <!-- Circuit Nodes -->
+    <circle cx="850" cy="80" r="5" fill="#38bdf8"/>
+    <circle cx="950" cy="160" r="7" fill="#818cf8" filter="url(#glow)"/>
+    <circle cx="1080" cy="100" r="6" fill="#c084fc"/>
+    <circle cx="1020" cy="240" r="5" fill="#38bdf8"/>
+    <circle cx="1140" cy="180" r="8" fill="#6366f1" filter="url(#glow)"/>
+  </g>
+
+  <!-- Foreground Content Container (Ensures 100% visibility for text) -->
+  <g transform="translate(70, 0)">
+    <!-- Top Pill Badge -->
+    <g transform="translate(0, 50)">
+      <rect width="260" height="30" rx="15" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <circle cx="15" cy="15" r="4" fill="#10b981"/>
+      <text x="30" y="20" class="tag">COMMERCIAL &amp; OPEN-SOURCE</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="142" class="title" filter="url(#glow)">Awesome IoT Operating Systems</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="188" class="subtitle">A Curated Ecosystem of RTOS, Embedded Linux &amp; Secure IoT Kernels</text>
+
+    <!-- Feature Chips / Tags -->
+    <g transform="translate(0, 225)">
+      <!-- Chip 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="110" height="28" rx="6" fill="#1e1b4b" stroke="#4338ca" stroke-width="1"/>
+        <text x="55" y="18" font-family="sans-serif" font-size="12" fill="#a5b4fc" font-weight="600" text-anchor="middle">⚡ Real-Time</text>
+      </g>
+      <!-- Chip 2 -->
+      <g transform="translate(122, 0)">
+        <rect width="125" height="28" rx="6" fill="#064e3b" stroke="#047857" stroke-width="1"/>
+        <text x="62" y="18" font-family="sans-serif" font-size="12" fill="#6ee7b7" font-weight="600" text-anchor="middle">🛡️ Zero-Trust OS</text>
+      </g>
+      <!-- Chip 3 -->
+      <g transform="translate(259, 0)">
+        <rect width="120" height="28" rx="6" fill="#4c1d95" stroke="#6d28d9" stroke-width="1"/>
+        <text x="60" y="18" font-family="sans-serif" font-size="12" fill="#ddd6fe" font-weight="600" text-anchor="middle">📟 Constrained MCU</text>
+      </g>
+      <!-- Chip 4 -->
+      <g transform="translate(391, 0)">
+        <rect width="135" height="28" rx="6" fill="#164e63" stroke="#0891b2" stroke-width="1"/>
+        <text x="67" y="18" font-family="sans-serif" font-size="12" fill="#67e8f9" font-weight="600" text-anchor="middle">🌐 Edge Gateways</text>
+      </g>
+    </g>
+  </g>
+</svg>
